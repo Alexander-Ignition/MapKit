@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>97D0790C-518A-4D85-B7BE-9F25FB39BEEB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MapKit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4331DDA8-CB12-4BDF-9DFF-E499C756F189</key>
+		<string>https://github.com/Alexander-Ignition/MapView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MapKit.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4331DDA8-CB12-4BDF-9DFF-E499C756F189</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Alexander-Ignition/MapView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4331DDA8-CB12-4BDF-9DFF-E499C756F189</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4331DDA8-CB12-4BDF-9DFF-E499C756F189</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MapView</string>
+		</dict>
+	</array>
+</dict>
+</plist>
