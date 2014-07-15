@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
     
-    self.mapView.delegate = self;
+//    self.mapView.delegate = self;
     [self configureAnnotations];
 }
 
@@ -49,6 +49,35 @@
     annotationView.annotation = annotation;
     
     return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+{
+    NSLog(@"%s animated = %d", __PRETTY_FUNCTION__, animated);
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    NSLog(@"%s animated = %d", __PRETTY_FUNCTION__, animated);
+}
+
+- (void)mapViewWillStartLoadingMap:(MKMapView *)mapView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)mapViewWillStartRenderingMap:(MKMapView *)mapView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
+{
+    NSLog(@"%s fullyRendered = %d", __PRETTY_FUNCTION__, fullyRendered);
 }
 
 
