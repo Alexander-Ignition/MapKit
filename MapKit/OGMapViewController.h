@@ -14,4 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+- (IBAction)addAction:(UIBarButtonItem *)sender;
+
 @end

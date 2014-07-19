@@ -9,6 +9,7 @@
 #import "OGMapViewController.h"
 #import "OGCoreData.h"
 #import "OGPin.h"
+#import "OGAddPinViewController.h"
 
 
 @interface OGMapViewController () <NSFetchedResultsControllerDelegate>
@@ -28,12 +29,6 @@
     [self configureAnnotations];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - MKMapViewDelegate
 
@@ -51,34 +46,34 @@
     return annotationView;
 }
 
-- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
-{
-    NSLog(@"%s animated = %d", __PRETTY_FUNCTION__, animated);
-}
-
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
-{
-    NSLog(@"%s animated = %d", __PRETTY_FUNCTION__, animated);
-}
-
-- (void)mapViewWillStartLoadingMap:(MKMapView *)mapView
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
-
-- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
-
-- (void)mapViewWillStartRenderingMap:(MKMapView *)mapView
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
-- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
-{
-    NSLog(@"%s fullyRendered = %d", __PRETTY_FUNCTION__, fullyRendered);
-}
+//- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+//{
+//    NSLog(@"%s animated = %d", __PRETTY_FUNCTION__, animated);
+//}
+//
+//- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+//{
+//    NSLog(@"%s animated = %d", __PRETTY_FUNCTION__, animated);
+//}
+//
+//- (void)mapViewWillStartLoadingMap:(MKMapView *)mapView
+//{
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
+//}
+//
+//- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
+//{
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
+//}
+//
+//- (void)mapViewWillStartRenderingMap:(MKMapView *)mapView
+//{
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
+//}
+//- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
+//{
+//    NSLog(@"%s fullyRendered = %d", __PRETTY_FUNCTION__, fullyRendered);
+//}
 
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -172,5 +167,18 @@
 //    _managedDocument = managedDocument;
 //    [self fetchedResultsController];
 //}
+
+
+#pragma mark - Actions
+
+- (IBAction)addAction:(UIBarButtonItem *)sender
+{
+//    OGAddPinViewController *addPinViewController = [[OGAddPinViewController alloc] init];
+    
+    UIStoryboard *mainStoriboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    id addPinViewController = [mainStoriboard instantiateViewControllerWithIdentifier:@"addPinViewController"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addPinViewController];
+    [self presentViewController:navController animated:YES completion:nil];
+}
 
 @end
