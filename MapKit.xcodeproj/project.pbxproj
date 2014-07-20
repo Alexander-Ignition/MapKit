@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11060FDB197AE9B600517F8F /* OGAddPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11060FDA197AE9B600517F8F /* OGAddPinViewController.m */; };
+		11285DF8197BD5570035CAFA /* OGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11285DF7197BD5570035CAFA /* OGTableViewController.m */; };
 		32DA4F97197563A600B75257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DA4F96197563A600B75257 /* Foundation.framework */; };
 		32DA4F99197563A600B75257 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DA4F98197563A600B75257 /* CoreGraphics.framework */; };
 		32DA4F9B197563A600B75257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DA4F9A197563A600B75257 /* UIKit.framework */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		11060FD9197AE9B600517F8F /* OGAddPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGAddPinViewController.h; sourceTree = "<group>"; };
 		11060FDA197AE9B600517F8F /* OGAddPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGAddPinViewController.m; sourceTree = "<group>"; };
+		11285DF6197BD5570035CAFA /* OGTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGTableViewController.h; sourceTree = "<group>"; };
+		11285DF7197BD5570035CAFA /* OGTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGTableViewController.m; sourceTree = "<group>"; };
 		32DA4F93197563A600B75257 /* MapKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DA4F96197563A600B75257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32DA4F98197563A600B75257 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +141,8 @@
 				32DA4FD6197564A700B75257 /* OGMapViewController.m */,
 				11060FD9197AE9B600517F8F /* OGAddPinViewController.h */,
 				11060FDA197AE9B600517F8F /* OGAddPinViewController.m */,
+				11285DF6197BD5570035CAFA /* OGTableViewController.h */,
+				11285DF7197BD5570035CAFA /* OGTableViewController.m */,
 				32DA4FCB1975647500B75257 /* Core Data */,
 				32DA4FAE197563A600B75257 /* Images.xcassets */,
 				32DA4F9D197563A600B75257 /* Supporting Files */,
@@ -291,6 +296,7 @@
 				32DA4FA3197563A600B75257 /* main.m in Sources */,
 				32DA4FD41975647500B75257 /* OGPin.m in Sources */,
 				32DA4FD31975647500B75257 /* OGCoreData.m in Sources */,
+				11285DF8197BD5570035CAFA /* OGTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

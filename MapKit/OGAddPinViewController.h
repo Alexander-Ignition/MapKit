@@ -12,7 +12,7 @@
 
 @interface OGAddPinViewController : UITableViewController
 
-@property (assign, nonatomic) CLLocationCoordinate2D coordinate;
+@property (strong, nonatomic) CLLocation *location;
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textFields;
 

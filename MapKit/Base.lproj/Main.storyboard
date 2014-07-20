@@ -27,12 +27,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="MapKit" id="F0c-ah-hUg">
+                        <barButtonItem key="leftBarButtonItem" title="Pins" id="AgB-Rt-Doy">
+                            <connections>
+                                <segue destination="95R-Pz-Nmh" kind="modal" modalTransitionStyle="flipHorizontal" id="IcA-yk-wPV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iOm-bk-xCL">
                             <connections>
                                 <action selector="addAction:" destination="SFR-mP-F7g" id="Vcp-C0-aNv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="jNZ-g1-5OU" id="Hfo-bh-8jc"/>
                     </connections>
@@ -40,6 +46,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUC-zy-aO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73" y="-224"/>
+        </scene>
+        <!--Table View Controller - Root View Controller-->
+        <scene sceneID="kt2-Fa-GSn">
+            <objects>
+                <tableViewController id="8sh-Ma-8mZ" customClass="OGTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3b2-4p-gPY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WrW-2H-NFm">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WrW-2H-NFm" id="xPU-of-tAe">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8sh-Ma-8mZ" id="NWP-jL-d82"/>
+                            <outlet property="delegate" destination="8sh-Ma-8mZ" id="Nla-ef-xaT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="fnP-wZ-UeF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="27b-qw-mte">
+                            <connections>
+                                <action selector="cancelButtonAction:" destination="8sh-Ma-8mZ" id="BNZ-r3-uPy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qnG-dD-ixW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="-224"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fMh-ud-zhw">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="95R-Pz-Nmh" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2az-Gj-95N">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8sh-Ma-8mZ" kind="relationship" relationship="rootViewController" id="mdX-pZ-vIL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdq-Ro-Ec9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="531" y="-224"/>
         </scene>
         <!--Add Pin View Controller - Root View Controller-->
         <scene sceneID="q6f-uU-WC5">
@@ -171,7 +229,7 @@
                         <outlet property="latitudeField" destination="jpU-F8-yVT" id="p2t-cf-sg2"/>
                         <outlet property="longitudeField" destination="eZr-yj-RrV" id="YHX-MT-nTH"/>
                         <outlet property="subtitleField" destination="WjY-gR-HUl" id="Rw5-ix-OWq"/>
-                        <outlet property="titleField" destination="eZr-yj-RrV" id="Ruk-IT-88P"/>
+                        <outlet property="titleField" destination="qB2-Tb-ybd" id="L9J-aF-asr"/>
                         <outletCollection property="textFields" destination="qB2-Tb-ybd" id="yjg-LE-Miv"/>
                         <outletCollection property="textFields" destination="WjY-gR-HUl" id="jZ0-qV-P6r"/>
                         <outletCollection property="textFields" destination="jpU-F8-yVT" id="M0e-66-WTw"/>
@@ -186,6 +244,7 @@
         <scene sceneID="jhM-mG-Qqb">
             <objects>
                 <navigationController definesPresentationContext="YES" id="tu1-YL-bQg" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pw6-BE-fX6">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

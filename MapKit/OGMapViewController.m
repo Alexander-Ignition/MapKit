@@ -24,25 +24,44 @@
 {
     [super viewDidLoad];
     
-//    self.mapView.delegate = self;
     [self configureAnnotations];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSError *error = nil;
+    if (![self.fetchedResultsController performFetch:&error]) {
+        NSLog(@"%s error = %@", __PRETTY_FUNCTION__, error);
+    }
+}
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
 
 #pragma mark - MKMapViewDelegate
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id)annotation
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"MyPin"];
-    if (!annotationView) {
-        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MyPin"];
-        annotationView.canShowCallout = YES;
-        annotationView.animatesDrop = YES;
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
     }
     
-    annotationView.annotation = annotation;
+    static NSString *identifier = @"MyPin";
     
-    return annotationView;
+    MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    if (!pin) {
+        pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        pin.canShowCallout = YES;
+        pin.animatesDrop   = YES;
+        pin.animatesDrop   = YES;
+    }
+    
+    pin.annotation = annotation;
+    return pin;
 }
 
 //- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
@@ -174,8 +193,13 @@
 {
     UIStoryboard *mainStoriboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     OGAddPinViewController *addPinViewController = [mainStoriboard instantiateViewControllerWithIdentifier:@"addPinViewController"];
-//    addPinViewController.coordinate = 
+    addPinViewController.location = [[CLLocation alloc] initWithLatitude:self.mapView.region.center.latitude
+                                                               longitude:self.mapView.region.center.longitude];
+    
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addPinViewController];
+//    navController.modalPresentationStyle  = UIModalPresentationPageSheet;
+//    navController.modalTransitionStyle    = UIModalTransitionStyleFlipHorizontal;
+    
     [self presentViewController:navController animated:YES completion:nil];
 }
 

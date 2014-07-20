@@ -7,6 +7,7 @@
 //
 
 #import "OGAddPinViewController.h"
+#import "OGCoreData.h"
 
 
 typedef enum {
@@ -24,6 +25,15 @@ typedef enum {
 
 @implementation OGAddPinViewController
 
+- (id)initWithLocation:(CLLocation *)location
+{
+    self = [super init];
+    if (self) {
+        self.location = location;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,6 +48,13 @@ typedef enum {
                                                                                 target:self
                                                                                 action:@selector(actionCancel:)];
     [self.navigationItem setLeftBarButtonItem:itemCancel animated:NO];
+    
+    if (!_location) {
+        itemSave.enabled = NO;
+    } else {
+        self.latitudeField.text = [NSString stringWithFormat:@"%f", self.location.coordinate.latitude];
+        self.longitudeField.text = [NSString stringWithFormat:@"%f", self.location.coordinate.longitude];
+    }
 }
 
 - (void)dealloc
@@ -49,13 +66,23 @@ typedef enum {
 
 - (void)actionSave:(UIBarButtonItem *)itemSave
 {
-    // TODO: save pin
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.titleField.text && self.subtitleField.text) {
+        NSManagedObjectContext *context = [OGCoreData defaultStore].managedObjectContext;
+        OGPin *newPin = [NSEntityDescription insertNewObjectForEntityForName:@"OGPin"
+                                                      inManagedObjectContext:context];
+        newPin.namePin    = self.titleField.text;
+        newPin.addressPin = self.subtitleField.text;
+        newPin.lat        = [NSNumber numberWithDouble:[self.latitudeField.text doubleValue]];
+        newPin.lon        = [NSNumber numberWithDouble:[self.longitudeField.text doubleValue]];
+        newPin.timeStamp  = [NSDate date];
+        
+        [[OGCoreData defaultStore] saveContext];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)actionCancel:(UIBarButtonItem *)itemCancel
 {
-    // TODO: cansel save pin
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -83,6 +110,7 @@ typedef enum {
 //    NSString *phoneStrinng = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
     switch (textField.tag) {
+        
         case titleFieldType:
             return YES;
             break;
