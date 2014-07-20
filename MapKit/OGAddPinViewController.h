@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OGPin.h"
+
 
 @interface OGAddPinViewController : UITableViewController
+
+@property (assign, nonatomic) CLLocationCoordinate2D coordinate;
+
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textFields;
+
+@property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextField *subtitleField;
+@property (weak, nonatomic) IBOutlet UITextField *latitudeField;
+@property (weak, nonatomic) IBOutlet UITextField *longitudeField;
 
 @end

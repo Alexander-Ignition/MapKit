@@ -8,7 +8,6 @@
 
 #import "OGMapViewController.h"
 #import "OGCoreData.h"
-#import "OGPin.h"
 #import "OGAddPinViewController.h"
 
 
@@ -173,10 +172,9 @@
 
 - (IBAction)addAction:(UIBarButtonItem *)sender
 {
-//    OGAddPinViewController *addPinViewController = [[OGAddPinViewController alloc] init];
-    
     UIStoryboard *mainStoriboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    id addPinViewController = [mainStoriboard instantiateViewControllerWithIdentifier:@"addPinViewController"];
+    OGAddPinViewController *addPinViewController = [mainStoriboard instantiateViewControllerWithIdentifier:@"addPinViewController"];
+//    addPinViewController.coordinate = 
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addPinViewController];
     [self presentViewController:navController animated:YES completion:nil];
 }
