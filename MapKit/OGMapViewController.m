@@ -57,11 +57,18 @@
         pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
         pin.canShowCallout = YES;
         pin.animatesDrop   = YES;
-        pin.animatesDrop   = YES;
+        pin.draggable      = YES;
+    } else {
+        pin.annotation = annotation;
     }
     
-    pin.annotation = annotation;
     return pin;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState
+   fromOldState:(MKAnnotationViewDragState)oldState
+{
+    
 }
 
 //- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
@@ -178,13 +185,6 @@
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotations:[self.fetchedResultsController fetchedObjects]];
 }
-
-// called from AppDelegate, to set the UIMD, and set up the NSFRC
-//- (void)setManagedDocument:(UIManagedDocument *)managedDocument
-//{
-//    _managedDocument = managedDocument;
-//    [self fetchedResultsController];
-//}
 
 
 #pragma mark - Actions

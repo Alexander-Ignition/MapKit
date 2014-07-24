@@ -25,4 +25,6 @@
 @property (nonatomic, readonly, copy) NSString *title;
 @property (nonatomic, readonly, copy) NSString *subtitle;
 
+- (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate;
+
 @end
