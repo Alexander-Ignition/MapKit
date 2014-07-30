@@ -11,7 +11,7 @@
 #import "OGAddPinViewController.h"
 
 
-@interface OGMapViewController () <NSFetchedResultsControllerDelegate>
+@interface OGMapViewController () <NSFetchedResultsControllerDelegate, UIBarPositioningDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
@@ -23,18 +23,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self configureAnnotations];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar.layer removeAllAnimations];
+    
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error]) {
         NSLog(@"%s error = %@", __PRETTY_FUNCTION__, error);
     }
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    //    [self.navigationController.navigationBar setTranslucent:NO];
+//    [self.navigationController.navigationBar.layer removeAllAnimations];
+}
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

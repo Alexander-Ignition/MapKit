@@ -35,6 +35,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+//    [self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar.layer removeAllAnimations];
+}
+
 - (void)dealloc
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
